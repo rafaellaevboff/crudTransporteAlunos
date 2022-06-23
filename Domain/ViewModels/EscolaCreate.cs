@@ -1,8 +1,7 @@
-namespace Domain.Entities
+namespace Domain.ViewModels
 {
-    public class Escola
+    public class EscolaCreate
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
         public string Endereco { get; set; }
     }

@@ -1,6 +1,6 @@
-namespace Domain.Entities
+namespace Domain.DTO
 {
-    public class Escola
+    public class EscolaDTO
     {
         public int Id { get; set; }
         public string Nome { get; set; }
