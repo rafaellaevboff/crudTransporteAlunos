@@ -9,10 +9,12 @@ namespace Data.Context
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {}
 
-        public DbSet<User> DbSetUser {get; set;}
+        public DbSet<Escola> DbSetEscola {get; set;}
+        public DbSet<Aluno> DbSetAluno {get; set;}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new EscolaMap());
+            modelBuilder.ApplyConfiguration(new AlunoMap());
         }
     }
 }
