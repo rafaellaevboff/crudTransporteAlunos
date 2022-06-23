@@ -9,10 +9,12 @@ namespace Data.Context
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {}
 
-        public DbSet<User> DbSetUser {get; set;}
+        public DbSet<Motorista> DbSetMotorista {get; set;}
+        public DbSet<Veiculo> DbSeVeiculo {get; set;}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new MotoristaMap());
+            modelBuilder.ApplyConfiguration(new VeiculoMap());
         }
     }
 }
