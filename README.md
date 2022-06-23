@@ -1,2 +1,2 @@
 # AS-POO
-Projeto CRUD mercado
+Projeto CRUD serviço transporte de alunos.
