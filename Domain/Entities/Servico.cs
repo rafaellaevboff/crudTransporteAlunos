@@ -5,11 +5,11 @@ namespace Domain.Entities
         public Servico(int id, Responsavel responsavel)
         {
             Id = id;
-            this.responsavel = responsavel;
+            this.Responsavel = responsavel;
         }
 
         public int Id { get; set; }
-        public Responsavel responsavel { get; set; }
+        public Responsavel Responsavel { get; set; }
 
     }
 }

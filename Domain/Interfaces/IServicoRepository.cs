@@ -1,6 +1,8 @@
+using Domain.Entities;
+
 namespace Domain.Interfaces
 {
-    public interface IServicoRepository
+    public interface IServicoRepository : IBaseRepository<Servico>
     {
          
     }
