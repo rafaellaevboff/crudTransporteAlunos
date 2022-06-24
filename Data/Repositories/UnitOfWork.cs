@@ -16,11 +16,5 @@ namespace Data.Repositories
         {
             await _Context.SaveChangesAsync();
         }
-        private IUserRepository _UserRepository;
-
-        public IUserRepository UserRepository
-        {
-            get { return _UserRepository ??= new UserRepository(_Context); }
-        }
     }
 }
