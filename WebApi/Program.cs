@@ -13,10 +13,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(
-    x => x.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+    x => x.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
+builder.Services.AddScoped<IEscolaRepository, EscolaRepository>();
 builder.Services.AddScoped<IMotoristaRepository, MotoristaRepository>();
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();

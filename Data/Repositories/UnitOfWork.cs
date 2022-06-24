@@ -16,6 +16,18 @@ namespace Data.Repositories
         {
             await _Context.SaveChangesAsync();
         }
+
+        private IEscolaRepository _EscolaRepository;
+        public IEscolaRepository EscolaRepository
+        {
+            get { return _EscolaRepository ??= new EscolaRepository(_Context); }
+        }
+
+        private IAlunoRepository _AlunoRepository;
+        public IAlunoRepository AlunoRepository
+        {
+            get { return _AlunoRepository ??= new AlunoRepository(_Context); }
+        }
         
         private IMotoristaRepository _MotoristaRepository;
         public IMotoristaRepository MotoristaRepository
