@@ -1,8 +1,11 @@
+using Domain.DTOs;
+using Domain.Entities;
+using Domain.Interfaces;
+using Domain.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+
 namespace WebApi.Controllers
-{
-    public class VeiculoController
-    {
-        
+{        
     [Route("api/")]
     public class VeiculoController : ControllerBase
     {
@@ -35,7 +38,7 @@ namespace WebApi.Controllers
                 Cor = veiculo.Cor
             };
             
-            veiculosDTO.Add(veiculosDTO);
+            veiculosDTO.Add(veiculoDTO);
         }
 
         return Ok(veiculosDTO);
@@ -74,7 +77,7 @@ namespace WebApi.Controllers
                 Cor = model.Cor
             };
 
-            repository.Create(veiculo);
+            repository.Save(veiculo);
             await _unitOfWork.CommitAsync();
 
             return Ok(new
@@ -125,6 +128,5 @@ namespace WebApi.Controllers
                 return Ok(veiculoDTO);
             }
         }
-    }
     }
 }

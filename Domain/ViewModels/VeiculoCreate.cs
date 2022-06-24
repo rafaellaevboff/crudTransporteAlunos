@@ -4,7 +4,7 @@ namespace Domain.ViewModels
     {
         public string Nome { get; set; }
         public string Placa { get; set; }
-        public string Ano { get; set; }
+        public int Ano { get; set; }
         public string Cor { get; set; }
     }
 }

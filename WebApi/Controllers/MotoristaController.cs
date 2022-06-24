@@ -1,8 +1,11 @@
+using Domain.DTOs;
+using Domain.Entities;
+using Domain.Interfaces;
+using Domain.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+
 namespace WebApi.Controllers
-{
-    public class MotoristaController
-    {
-        
+{        
     [Route("api/")]
     public class MotoristaController : ControllerBase
     {
@@ -71,10 +74,11 @@ namespace WebApi.Controllers
                 Nome = model.Nome,
                 Cpf = model.Cpf,
                 Telefone = model.Telefone,
-                Email = model.Email
+                Email = model.Email,
+                Veiculo = model.Veiculo
             };
 
-            repository.Create(motorista);
+            repository.Save(motorista);
             await _unitOfWork.CommitAsync();
 
             return Ok(new
@@ -127,6 +131,5 @@ namespace WebApi.Controllers
                 return Ok(motoristaDTO);
             }
         }
-    }
     }
 }

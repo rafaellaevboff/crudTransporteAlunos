@@ -38,6 +38,7 @@ namespace Data.Types
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(155)
                 .IsRequired();
+                
             builder
                 .HasMany(i => i.Veiculo)
                 .WithMany(i => i.Motorista)

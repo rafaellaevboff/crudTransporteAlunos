@@ -10,7 +10,7 @@ namespace Data.Context
         {}
 
         public DbSet<Motorista> DbSetMotorista {get; set;}
-        public DbSet<Veiculo> DbSeVeiculo {get; set;}
+        public DbSet<Veiculo> DbSetVeiculo {get; set;}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new MotoristaMap());
