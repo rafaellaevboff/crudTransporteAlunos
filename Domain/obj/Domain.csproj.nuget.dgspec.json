@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\OneDrive\\Área de Trabalho\\ULBRA\\GitHub\\AS-POO\\Domain\\Domain.csproj": {}
+    "C:\\Users\\zuera\\OneDrive\\Área de Trabalho\\Ulbra\\2022.1\\PROGRAMAÇÃO ORIENTADA A OBJETOS\\AS-POO\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\OneDrive\\Área de Trabalho\\ULBRA\\GitHub\\AS-POO\\Domain\\Domain.csproj": {
+    "C:\\Users\\zuera\\OneDrive\\Área de Trabalho\\Ulbra\\2022.1\\PROGRAMAÇÃO ORIENTADA A OBJETOS\\AS-POO\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Área de Trabalho\\ULBRA\\GitHub\\AS-POO\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\zuera\\OneDrive\\Área de Trabalho\\Ulbra\\2022.1\\PROGRAMAÇÃO ORIENTADA A OBJETOS\\AS-POO\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Área de Trabalho\\ULBRA\\GitHub\\AS-POO\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Área de Trabalho\\ULBRA\\GitHub\\AS-POO\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\zuera\\OneDrive\\Área de Trabalho\\Ulbra\\2022.1\\PROGRAMAÇÃO ORIENTADA A OBJETOS\\AS-POO\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\zuera\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zuera\\OneDrive\\Área de Trabalho\\Ulbra\\2022.1\\PROGRAMAÇÃO ORIENTADA A OBJETOS\\AS-POO\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\zuera\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4,6 +4,8 @@ namespace Domain.Entities
 {
     public class Motorista
     {
+        public Motorista(){}
+
         public Motorista(int id, string nome, string cpf, string telefone, string email, Veiculo veiculo)
         {
             Id = id;
