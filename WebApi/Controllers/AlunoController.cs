@@ -30,7 +30,7 @@ namespace WebApi.Controllers
                     Id = aluno.Id,
                     Nome = aluno.Nome,
                     Endereco = aluno.Endereco,
-                    //Escola = aluno.Escola ????
+                    Escola = aluno.Escola
                 };
                 alunosDTO.Add(alunoDTO);
             }
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
                     Id = aluno.Id,
                     Nome = aluno.Nome,
                     Endereco = aluno.Endereco,
-                    //Escola = aluno.Escola ????
+                    Escola = aluno.Escola,
                 };
                 return Ok(alunoDTO);
             }
@@ -64,7 +64,7 @@ namespace WebApi.Controllers
             {
                 Nome = model.Nome,
                 Endereco = model.Endereco,
-                //Escola = aluno.Escola ????
+                EscolaID = model.EscolaID,
             };
 
             repository.Save(aluno);
@@ -88,14 +88,27 @@ namespace WebApi.Controllers
                 return Ok(id);   
         }
 
-        [HttpPatch("{id}")] //vai editar uma pessoa de acordo com o id informado e com os dados alterados
-        public async Task<IActionResult> PutAsync([FromRoute] int id, [FromBody] AlunoUpdateEndereco model)
+        // Edita as informações dos alunos
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchAsyncEndereco([FromRoute] int id, [FromBody] AlunoUpdateEndereco model)
         {
             var aluno = await repository.GetByIdAsync(id);
             if (aluno == null) return NotFound();
 
             aluno.Endereco = model.Endereco;
-            //aluno.Escola = model.Escola ????
+
+            repository.Update(aluno);
+            await _unitOfWork.CommitAsync();
+            return Ok(aluno);
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchAsyncEscola([FromRoute] int id, [FromBody] AlunoUpdateEscola model)
+        {
+            var aluno = await repository.GetByIdAsync(id);
+            if (aluno == null) return NotFound();
+
+            aluno.EscolaID = model.EscolaID;
 
             repository.Update(aluno);
             await _unitOfWork.CommitAsync();
