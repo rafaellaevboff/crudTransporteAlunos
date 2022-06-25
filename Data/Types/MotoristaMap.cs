@@ -39,23 +39,23 @@ namespace Data.Types
                 .HasMaxLength(155)
                 .IsRequired();
                 
-            builder
-                .HasMany(i => i.Veiculo)
-                .WithMany(i => i.Motorista)
-                .UsingEntity<Dictionary<string, object>>(
-                    "motorista_veiculo",
-                    veiculo => veiculo
-                        .HasOne<Veiculo>()
-                        .WithMany()
-                        .HasForeignKey("veiculo_id")
-                        .HasConstraintName("FK_motorista_veiculo_veiculo_id")
-                        .OnDelete(DeleteBehavior.Cascade),
-                    motorista => motorista
-                        .HasOne<User>()
-                        .WithMany()
-                        .HasForeignKey("motorista_id")
-                        .HasConstraintName("FK_motorista_veiculo_motorista_id")
-                        .OnDelete(DeleteBehavior.Cascade));
+        //     builder
+        //         .HasMany(i => i.Veiculo)
+        //         .WithMany(i => i.Motorista)
+        //         .UsingEntity<Dictionary<string, object>>(
+        //             "motorista_veiculo",
+        //             veiculo => veiculo
+        //                 .HasOne<Veiculo>()
+        //                 .WithMany()
+        //                 .HasForeignKey("veiculo_id")
+        //                 .HasConstraintName("FK_motorista_veiculo_veiculo_id")
+        //                 .OnDelete(DeleteBehavior.Cascade),
+        //             motorista => motorista
+        //                 .HasOne<User>()
+        //                 .WithMany()
+        //                 .HasForeignKey("motorista_id")
+        //                 .HasConstraintName("FK_motorista_veiculo_motorista_id")
+        //                 .OnDelete(DeleteBehavior.Cascade));
         }
     }
 }
