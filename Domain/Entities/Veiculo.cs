@@ -19,5 +19,6 @@ namespace Domain.Entities
         public string Placa { get; set; }
         public int Ano { get; set; }
         public string Cor { get; set; }
+        public List<Motorista> Motoristas { get; set; }
     }
 }

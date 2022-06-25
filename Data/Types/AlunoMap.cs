@@ -26,7 +26,16 @@ namespace Data.Types
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(80)
                 .IsRequired();
-            //adicionar chave estrangeira escola dps
+            
+            builder.Property(x => x.EscolaID)
+                .HasColumnName("escolaId")
+                .HasColumnType("Integer") //verificar integer ???
+                .IsRequired();
+                
+            builder.HasOne(x => x.Escola)
+                .WithMany(x => x.Alunos)
+                .HasConstraintName("FK_Aluno_Escola")
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

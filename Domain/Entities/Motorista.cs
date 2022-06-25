@@ -5,7 +5,7 @@ namespace Domain.Entities
     public class Motorista
     {
         public  Motorista(){}
-        public Motorista(int id, string nome, string cpf, string telefone, string email, Veiculo veiculo)
+        public Motorista(int id, string nome, string cpf, string telefone, string email, Veiculo veiculo, int VeiculoID)
         {
             Id = id;
             Nome = nome;
@@ -13,6 +13,7 @@ namespace Domain.Entities
             Telefone = telefone;
             Email = email;
             this.Veiculo = veiculo;
+            this.VeiculoID = VeiculoID;
         }
 
         public int Id { get; set; }
@@ -21,5 +22,6 @@ namespace Domain.Entities
         public string Telefone { get; set; }
         public string Email { get; set; }
         public Veiculo Veiculo{ get; set; }
+        public int VeiculoID { get; set; }
     }
 }
