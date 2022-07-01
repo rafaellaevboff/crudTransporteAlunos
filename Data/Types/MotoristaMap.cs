@@ -48,6 +48,7 @@ namespace Data.Types
                 .WithMany(x => x.Motoristas)
                 .HasConstraintName("FK_Motorista_Veiculo")
                 .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

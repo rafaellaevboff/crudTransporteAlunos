@@ -7,7 +7,8 @@ namespace Domain.Entities
         public string Endereco { get; set; }
         public Escola Escola{ get; set; }
         public int EscolaID { get; set; }
-        public Veiculo Veiculo{ get; set; } //implementado pelo Luiz
+        public Motorista Motorista{ get; set; } //implementado pelo Luiz
+        public int MotoristaID { get; set; }
         //public Responsavel Responsavel{ get; set; } //irá ser implementado pelo Bryan
     }
 }

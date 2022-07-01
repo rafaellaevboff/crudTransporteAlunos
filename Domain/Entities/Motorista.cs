@@ -23,5 +23,7 @@ namespace Domain.Entities
         public string Email { get; set; }
         public Veiculo Veiculo{ get; set; }
         public int VeiculoID { get; set; }
+        public List<Aluno> Alunos { get; set; }
+        
     }
 }
