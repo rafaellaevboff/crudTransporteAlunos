@@ -8,6 +8,6 @@ namespace Domain.ViewModels
         public string Cpf { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public Veiculo Veiculo { get; set; }
+        public int VeiculoID { get; set; }
     }
 }

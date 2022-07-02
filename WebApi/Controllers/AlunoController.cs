@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {        
-    [Route("[controller]")]
+    [Route("api/")]
     public class AlunoController: ControllerBase
     {
         private readonly IAlunoRepository repository;
@@ -18,7 +18,7 @@ namespace WebApi.Controllers
             this._unitOfWork = unitOfWork;
         }
 
-        [HttpGet()]
+        [HttpGet("aluno")]
         public async Task<IActionResult> GetAllAsync()
         {
             var alunosList = await repository.GetAllAsync();
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
             return Ok(alunosDTO);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("aluno/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
             var aluno = await repository.GetByIdAsync(id);
@@ -57,7 +57,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpPost()]
+        [HttpPost("aluno")]
         public async Task<IActionResult> PostAsync([FromBody]AlunoCreate model)
         {
             var aluno = new Aluno()
@@ -65,6 +65,8 @@ namespace WebApi.Controllers
                 Nome = model.Nome,
                 Endereco = model.Endereco,
                 EscolaID = model.EscolaID,
+                MotoristaID = model.MotoristaID,
+                ResponsavelID = model.ResponsavelID
             };
 
             repository.Save(aluno);
@@ -76,7 +78,7 @@ namespace WebApi.Controllers
             });
         }
         
-        [HttpDelete("{id}")]
+        [HttpDelete("aluno/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
             var alunoDeleted = repository.Delete(id);
@@ -85,11 +87,15 @@ namespace WebApi.Controllers
             if(alunoDeleted == false)
                 return NotFound();
             else
-                return Ok(id);   
+                return Ok(new   
+            {
+                message = "Aluno deletado com sucesso!",
+                id = id
+            });   
         }
 
         // Edita as informações dos alunos
-        [HttpPatch("{id}")]
+        [HttpPatch("aluno/{id:int}")]
         public async Task<IActionResult> PatchAsyncEndereco([FromRoute] int id, [FromBody] AlunoUpdateEndereco model)
         {
             var aluno = await repository.GetByIdAsync(id);
@@ -102,7 +108,7 @@ namespace WebApi.Controllers
             return Ok(aluno);
         }
 
-        [HttpPatch("{id}")]
+        [HttpPatch("aluno/{id:int}")]
         public async Task<IActionResult> PatchAsyncEscola([FromRoute] int id, [FromBody] AlunoUpdateEscola model)
         {
             var aluno = await repository.GetByIdAsync(id);

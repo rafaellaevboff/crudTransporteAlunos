@@ -11,5 +11,7 @@ namespace Domain.Interfaces
          IAlunoRepository AlunoRepository{get;}
          IMotoristaRepository MotoristaRepository{get;}
          IVeiculoRepository VeiculoRepository{get;}
+         IResponsavelRepository ResponsavelRepository{get;}
+         IServicoRepository ServicoRepository{get;}
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/")]
     public class EscolaController : ControllerBase
     {
         private readonly IEscolaRepository repository;
@@ -18,7 +18,7 @@ namespace WebApi.Controllers
             this._unitOfWork = unitOfWork;
         }
 
-        [HttpGet()]
+        [HttpGet("escola")]
         public async Task<IActionResult> GetAllAsync()
         {
             var escolaList = await repository.GetAllAsync();
@@ -36,7 +36,7 @@ namespace WebApi.Controllers
             return Ok(escolasDTO);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("escola/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
             var escola = await repository.GetByIdAsync(id);
@@ -55,7 +55,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpPost()]
+        [HttpPost("escola")]
         public async Task<IActionResult> PostAsync([FromBody]EscolaCreate model)
         {
             var escola = new Escola()
@@ -73,7 +73,7 @@ namespace WebApi.Controllers
             });
         }
         
-        [HttpDelete("{id}")]
+        [HttpDelete("escola/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
             var escolaDeleted = repository.Delete(id);
@@ -82,10 +82,14 @@ namespace WebApi.Controllers
             if(escolaDeleted == false)
                 return NotFound();
             else
-                return Ok(id);   
+                return Ok(new   
+            {
+                message = "Escola deletada com sucesso!",
+                id = id
+            });  
         }
 
-        [HttpPatch("{id}")] //vai editar uma pessoa de acordo com o id informado e com os dados alterados
+        [HttpPatch("escola/{id:int}")] //vai editar uma pessoa de acordo com o id informado e com os dados alterados
         public async Task<IActionResult> PatchAsync([FromRoute] int id, [FromBody] EscolaUpdateEndereco model)
         {
             var escola = await repository.GetByIdAsync(id);

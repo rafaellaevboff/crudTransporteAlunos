@@ -40,6 +40,18 @@ namespace Data.Repositories
         {
             get { return _VeiculoRepository ??= new VeiculoRepository(_Context); }
         }
+        
+        private IResponsavelRepository _ResponsavelRepository;
+        public IResponsavelRepository ResponsavelRepository
+        {
+            get { return _ResponsavelRepository ??= new ResponsavelRepository(_Context); }
+        }
+        
+        private IServicoRepository _ServicoRepository;
+        public IServicoRepository ServicoRepository
+        {
+            get { return _ServicoRepository ??= new ServicoRepository(_Context); }
+        }
 
     }
 }

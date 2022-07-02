@@ -16,7 +16,7 @@ namespace Data.Repositories
 
         public async Task<IList<Aluno>> GetAllAsync()
         {
-            return await Context.DbSetAluno.ToListAsync();
+            return await Context.DbSetAluno.Include(x => x.Escola).Include(x => x.Motorista).ToListAsync();
         }
 
         public async Task<Aluno> GetByIdAsync(int alunoId)

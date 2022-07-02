@@ -20,7 +20,7 @@ namespace WebApi.Controllers
             this._unitOfWork = unitOfWork;
         }
 
-        [HttpGet("v1/motoristas")]
+        [HttpGet("motoristas")]
         public async Task<IActionResult> GetAllAsync()
         {
             var motoristasList = await repository.GetAllAsync();
@@ -44,7 +44,7 @@ namespace WebApi.Controllers
         return Ok(motoristasDTO);
     }
 
-        [HttpGet("v1/motoristas/{id:int}")]
+        [HttpGet("motoristas/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
             var motorista = await repository.GetByIdAsync(id);
@@ -66,7 +66,7 @@ namespace WebApi.Controllers
         }
     }
 
-        [HttpPost("v1/motoristas")]
+        [HttpPost("motoristas")]
         public async Task<IActionResult> PostAsync([FromBody] MotoristaCreate model)
         {
             var motorista = new Motorista()
@@ -75,7 +75,7 @@ namespace WebApi.Controllers
                 Cpf = model.Cpf,
                 Telefone = model.Telefone,
                 Email = model.Email,
-                Veiculo = model.Veiculo
+                VeiculoID = model.VeiculoID,
             };
 
             repository.Save(motorista);
@@ -87,7 +87,7 @@ namespace WebApi.Controllers
             });
         }
 
-        [HttpDelete("v1/motoristas/{id:int}")]
+        [HttpDelete("motoristas/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
             var motoristaDeleted = repository.Delete(id);
@@ -103,7 +103,7 @@ namespace WebApi.Controllers
             });
         }
 
-        [HttpPatch("v1/motoristas/{id:int}")] //vai editar uma pessoa de acordo com o id informado e com os dados alterados
+        [HttpPatch("motoristas/{id:int}")] //vai editar uma pessoa de acordo com o id informado e com os dados alterados
         public async Task<IActionResult> PutAsync([FromRoute]int id, [FromBody] MotoristaUpdate model)
         {
             var motorista = await repository.GetByIdAsync(id);

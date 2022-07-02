@@ -63,7 +63,7 @@ namespace WebApi.Controllers
             {
                 Nome = model.Nome,
                 Endereco = model.Endereco,
-                Cpf = model.Cpf
+                Cpf = model.Cpf,
             };
 
             repository.Save(responsavel);
@@ -84,11 +84,14 @@ namespace WebApi.Controllers
             if(responsavelDeleted == false)
                 return NotFound();
             else
-                return Ok(id);   
+                return Ok(new   
+            {
+                message = "Responsavel deletado com sucesso!",
+                id = id
+            });
         }
-
         [HttpPatch("responsavel/{id:int}")] //vai editar uma pessoa de acordo com o id informado e com os dados alterados
-        public async Task<IActionResult> PatchAsync([FromRoute] int id, [FromBody] ResponsavelUpdateNome model)
+        public async Task<IActionResult> PatchAsync([FromRoute] int id, [FromBody] ResponsavelUpdateEndereco model)
         {
             var responsavel = await repository.GetByIdAsync(id);
             if (responsavel == null) return NotFound();
