@@ -25,16 +25,6 @@ namespace Data.Types
                 .HasConstraintName("FK_Aluno_Servico")
                 .HasForeignKey<Servico>(i => i.AlunoID)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            // builder.Property(x => x.MotoristaID)
-            //     .HasColumnName("motoristaId")
-            //     .HasColumnType("INTEGER")
-            //     .IsRequired();
-                
-            // builder.HasOne(x => x.Motorista)
-            //     .WithMany(x => x.Alunos)
-            //     .HasConstraintName("FK_Aluno_Motorista")
-            //     .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

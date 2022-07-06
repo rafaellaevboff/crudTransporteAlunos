@@ -10,6 +10,8 @@ namespace Domain.Entities
         public string Cpf { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+
+        // chaves estrangeiras
         public Veiculo Veiculo{ get; set; }
         public int VeiculoID { get; set; }
         public List<Aluno> Alunos { get; set; }

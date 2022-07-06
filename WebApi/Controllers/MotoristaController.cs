@@ -75,7 +75,7 @@ namespace WebApi.Controllers
                 Cpf = model.Cpf,
                 Telefone = model.Telefone,
                 Email = model.Email,
-                VeiculoID = model.VeiculoID,
+                VeiculoID = model.VeiculoID
             };
 
             repository.Save(motorista);
@@ -115,20 +115,11 @@ namespace WebApi.Controllers
                 motorista.Nome = model.Nome;
                 motorista.Telefone = model.Telefone;
                 motorista.Email = model.Email;
+                motorista.VeiculoID = model.VeiculoID;
 
                 repository.Update(motorista);
                 await _unitOfWork.CommitAsync();
-                
-                var motoristaDTO = new MotoristaDTO()
-                {
-                    Id = motorista.Id,
-                    Nome = motorista.Nome,
-                    Cpf = motorista.Cpf,
-                    Telefone = motorista.Telefone,
-                    Email = motorista.Email
-                };
-
-                return Ok(motoristaDTO);
+                return Ok(motorista);
             }
         }
     }

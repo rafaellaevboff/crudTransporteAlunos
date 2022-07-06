@@ -27,6 +27,7 @@ namespace Data.Types
                 .HasMaxLength(80)
                 .IsRequired();
             
+            // CHAVES ESTRANGEIRAS
 
             builder.Property(x => x.EscolaID)
                 .HasColumnName("escolaId")
@@ -38,7 +39,6 @@ namespace Data.Types
                 .HasConstraintName("FK_Aluno_Escola")
                 .OnDelete(DeleteBehavior.Restrict);
 
-
             builder.Property(x => x.MotoristaID)
                 .HasColumnName("motoristaId")
                 .HasColumnType("INTEGER")
@@ -49,7 +49,18 @@ namespace Data.Types
                 .HasConstraintName("FK_Aluno_Motorista")
                 .OnDelete(DeleteBehavior.Restrict);
 
-           
+            builder.Property(x => x.ResponsavelID)
+                .HasColumnName("responsavelId")
+                .HasColumnType("INTEGER")
+                .IsRequired();
+                
+            builder.HasOne(x => x.Responsavel)
+                .WithMany(x => x.Alunos)
+                .HasConstraintName("FK_Aluno_Responsavel")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // conexão com servico esta em ServicoMap
+
         }
     }
 }

@@ -107,25 +107,14 @@ namespace WebApi.Controllers
         {
             var veiculo = await repository.GetByIdAsync(id);
 
-            if (veiculo == null) 
-                return NotFound();
+            if (veiculo == null) return NotFound();
             else
             {
                 veiculo.Cor = model.Cor;
 
                 repository.Update(veiculo);
                 await _unitOfWork.CommitAsync();
-                
-                var veiculoDTO = new VeiculoDTO()
-                {
-                    Id = veiculo.Id,
-                    Nome = veiculo.Nome,
-                    Placa = veiculo.Placa,
-                    Ano = veiculo.Ano,
-                    Cor = veiculo.Cor
-                };
-
-                return Ok(veiculoDTO);
+                return Ok(veiculo);
             }
         }
     }

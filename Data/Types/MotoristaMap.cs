@@ -39,6 +39,8 @@ namespace Data.Types
                 .HasMaxLength(155)
                 .IsRequired();
 
+            // CHAVES ESTRANGEIRAS
+
             builder.Property(x => x.VeiculoID)
                 .HasColumnName("veiculoId")
                 .HasColumnType("Integer")
@@ -48,25 +50,6 @@ namespace Data.Types
                 .WithMany(x => x.Motoristas)
                 .HasConstraintName("FK_Motorista_Veiculo")
                 .OnDelete(DeleteBehavior.Restrict);
-
-            // builder
-            //     .HasMany(i => i.Veiculos)
-            //     .WithMany(i => i.Motoristas)
-            //     .UsingEntity<Dictionary<string, object>>(
-            //         "motorista_veiculo",
-            //         veiculo => veiculo
-            //             .HasOne<Veiculo>()
-            //             .WithMany()
-            //             .HasForeignKey("veiculo_id")
-            //             .HasConstraintName("FK_motorista_veiculo_veiculo_id")
-            //             .OnDelete(DeleteBehavior.Restrict),
-            //         motorista => motorista
-            //             .HasOne<Motorista>()
-            //             .WithMany()
-            //             .HasForeignKey("motorista_id")
-            //             .HasConstraintName("FK_motorista_veiculo_motor_id")
-            //             .OnDelete(DeleteBehavior.Cascade));
-
         }
     }
 }
