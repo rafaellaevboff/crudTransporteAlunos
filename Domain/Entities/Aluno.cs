@@ -17,6 +17,6 @@ namespace Domain.Entities
         public int ResponsavelID { get; set; }
 
         public Servico Servico{ get; set; }
-        public int ServicoID { get; set; }
+        //public int ServicoID{ get; set; }
     }
 }
