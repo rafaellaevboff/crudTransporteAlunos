@@ -4,21 +4,18 @@
 
 namespace Data.Migrations
 {
-    public partial class primeiroTesteMigrations : Migration
+    public partial class InitialMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "user");
-
             migrationBuilder.CreateTable(
                 name: "escola",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    userName = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
-                    password = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false)
+                    nome = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
+                    endereco = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,8 +82,8 @@ namespace Data.Migrations
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    userName = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
-                    password = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
+                    nome = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
+                    endereco = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
                     escolaId = table.Column<int>(type: "INTEGER", nullable: false),
                     motoristaId = table.Column<int>(type: "INTEGER", nullable: false),
                     responsavelId = table.Column<int>(type: "INTEGER", nullable: false),
@@ -205,21 +202,6 @@ namespace Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "veiculo");
-
-            migrationBuilder.CreateTable(
-                name: "user",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    email = table.Column<string>(type: "NVARCHAR", maxLength: 255, nullable: false),
-                    password = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
-                    userName = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_user", x => x.id);
-                });
         }
     }
 }

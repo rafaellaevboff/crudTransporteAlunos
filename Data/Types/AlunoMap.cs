@@ -16,13 +16,13 @@ namespace Data.Types
             builder.HasKey(i => i.Id);
 
             builder.Property(i => i.Nome)
-                .HasColumnName("userName")
+                .HasColumnName("nome")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(80)
                 .IsRequired();
 
             builder.Property(i => i.Endereco)
-                .HasColumnName("password")
+                .HasColumnName("endereco")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(80)
                 .IsRequired();
@@ -60,7 +60,6 @@ namespace Data.Types
                 .OnDelete(DeleteBehavior.Restrict);
 
             // conexão com servico esta em ServicoMap
-
         }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220706232707_primeiroTesteMigrations")]
-    partial class primeiroTesteMigrations
+    [Migration("20220706234352_InitialMigrations")]
+    partial class InitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,7 +29,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("NVARCHAR")
-                        .HasColumnName("password");
+                        .HasColumnName("endereco");
 
                     b.Property<int>("EscolaID")
                         .HasColumnType("INTEGER")
@@ -43,7 +43,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("NVARCHAR")
-                        .HasColumnName("userName");
+                        .HasColumnName("nome");
 
                     b.Property<int>("ResponsavelID")
                         .HasColumnType("INTEGER")
@@ -74,13 +74,13 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("NVARCHAR")
-                        .HasColumnName("password");
+                        .HasColumnName("endereco");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("NVARCHAR")
-                        .HasColumnName("userName");
+                        .HasColumnName("nome");
 
                     b.HasKey("Id");
 
