@@ -10,5 +10,6 @@ namespace Domain.Entities
         //chaves estrangeiras
         public List<Servico> Servicos { get; set; }
         public List<Aluno> Alunos { get; set; }
+
     }
 }

@@ -2,6 +2,7 @@ namespace Domain.Entities
 {
     public class Servico
     {
+
         public int Id { get; set; }
         public string Cnpj { get; set; }
 
@@ -14,5 +15,5 @@ namespace Domain.Entities
 
         public Responsavel Responsavel{ get; set; }
         public int ResponsavelID { get; set; }
-    }
+     }
 }
