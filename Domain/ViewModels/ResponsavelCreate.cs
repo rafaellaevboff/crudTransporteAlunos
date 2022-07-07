@@ -5,7 +5,7 @@ namespace Domain.ViewModels
     {
         public string Nome { get; set; }
         public string Endereco { get; set; }
-        public int Cpf { get; set; }
+        public string Cpf { get; set; }
         
     }
 }

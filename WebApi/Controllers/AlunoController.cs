@@ -30,7 +30,9 @@ namespace WebApi.Controllers
                     Id = aluno.Id,
                     Nome = aluno.Nome,
                     Endereco = aluno.Endereco,
-                    Escola = aluno.Escola
+                    EscolaID = aluno.EscolaID,
+                    MotoristaID = aluno.MotoristaID,
+                    ResponsavelID = aluno.ResponsavelID,
                 };
                 alunosDTO.Add(alunoDTO);
             }
@@ -51,7 +53,9 @@ namespace WebApi.Controllers
                     Id = aluno.Id,
                     Nome = aluno.Nome,
                     Endereco = aluno.Endereco,
-                    Escola = aluno.Escola,
+                    EscolaID = aluno.EscolaID,
+                    MotoristaID = aluno.MotoristaID,
+                    ResponsavelID = aluno.ResponsavelID,
                 };
                 return Ok(alunoDTO);
             }
@@ -96,24 +100,12 @@ namespace WebApi.Controllers
 
         // Edita as informações dos alunos
         [HttpPatch("aluno/{id:int}")]
-        public async Task<IActionResult> PatchAsyncEndereco([FromRoute] int id, [FromBody] AlunoUpdateEndereco model)
+        public async Task<IActionResult> PatchAsync([FromRoute] int id, [FromBody] AlunoUpdate model)
         {
             var aluno = await repository.GetByIdAsync(id);
             if (aluno == null) return NotFound();
 
             aluno.Endereco = model.Endereco;
-
-            repository.Update(aluno);
-            await _unitOfWork.CommitAsync();
-            return Ok(aluno);
-        }
-
-        [HttpPatch("aluno/{id:int}")]
-        public async Task<IActionResult> PatchAsyncEscola([FromRoute] int id, [FromBody] AlunoUpdateEscola model)
-        {
-            var aluno = await repository.GetByIdAsync(id);
-            if (aluno == null) return NotFound();
-
             aluno.EscolaID = model.EscolaID;
 
             repository.Update(aluno);

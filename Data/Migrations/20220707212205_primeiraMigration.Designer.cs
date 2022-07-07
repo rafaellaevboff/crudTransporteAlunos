@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220706234352_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20220707212205_primeiraMigration")]
+    partial class primeiraMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,9 +48,6 @@ namespace Data.Migrations
                     b.Property<int>("ResponsavelID")
                         .HasColumnType("INTEGER")
                         .HasColumnName("responsavelId");
-
-                    b.Property<int>("ServicoID")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -136,7 +133,8 @@ namespace Data.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("id");
 
-                    b.Property<int>("Cpf")
+                    b.Property<string>("Cpf")
+                        .IsRequired()
                         .HasMaxLength(18)
                         .HasColumnType("NVARCHAR")
                         .HasColumnName("cpf");

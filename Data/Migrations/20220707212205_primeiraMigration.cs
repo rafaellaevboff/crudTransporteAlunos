@@ -4,7 +4,7 @@
 
 namespace Data.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class primeiraMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,7 +30,7 @@ namespace Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     nome = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
                     endereco = table.Column<string>(type: "NVARCHAR", maxLength: 15, nullable: false),
-                    cpf = table.Column<int>(type: "NVARCHAR", maxLength: 18, nullable: false)
+                    cpf = table.Column<string>(type: "NVARCHAR", maxLength: 18, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,8 +86,7 @@ namespace Data.Migrations
                     endereco = table.Column<string>(type: "NVARCHAR", maxLength: 80, nullable: false),
                     escolaId = table.Column<int>(type: "INTEGER", nullable: false),
                     motoristaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    responsavelId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ServicoID = table.Column<int>(type: "INTEGER", nullable: false)
+                    responsavelId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

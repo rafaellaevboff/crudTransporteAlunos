@@ -1,9 +1,8 @@
-using Domain.Entities;
-
 namespace Domain.ViewModels
 {
-    public class AlunoUpdateEndereco
+    public class AlunoUpdate
     {
         public string Endereco { get; set; }
+        public int EscolaID { get; set; }
     }
 }
