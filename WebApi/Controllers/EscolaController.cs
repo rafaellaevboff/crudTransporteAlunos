@@ -88,18 +88,5 @@ namespace WebApi.Controllers
                 id = id
             });  
         }
-
-        [HttpPatch("escola/{id:int}")] //vai editar uma pessoa de acordo com o id informado e com os dados alterados
-        public async Task<IActionResult> PatchAsync([FromRoute] int id, [FromBody] EscolaUpdateEndereco model)
-        {
-            var escola = await repository.GetByIdAsync(id);
-            if (escola == null) return NotFound();
-
-            escola.Endereco = model.Endereco;
-
-            repository.Update(escola);
-            await _unitOfWork.CommitAsync();
-            return Ok(escola);
-        }
     }
 }
